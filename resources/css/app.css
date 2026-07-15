@@ -1,0 +1,257 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "@fontsource/poppins";
+
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+}
+
+/* #region: Global */
+:root {
+    --body-bg: #f8f6f2;
+    --color-primary: #0e1e16;
+    --color-bg-button: #d4af37;
+    --color-bg-button-hover: #c5a035;
+    --color-bg-button-active: #b08d2a;
+    --color-border: #e0e0e0;
+    --color-dark-red: #9c0a0a;
+    --color-red: #dd0505;
+    --color-dark-green: #29742d;
+    --color-gold: #ffae4c;
+    --color-bg-black: #1f1f1f;
+    --color-light-white: #e6e6e6;
+    --color-light-gray: #e0e0e0;
+    --color-light-green: #d5edb5;
+}
+body {
+    @apply bg-(--body-bg) font-poppins;
+}
+.wrapper-fluid {
+    @apply w-full mx-auto px-3 py-2 min-w-0 sm:px-5;
+}
+.wrapper {
+    @apply w-full mx-auto px-3 sm:px-5 lg:w-4/5 lg:px-0;
+}
+.asterisk {
+    @apply text-(--color-red) ms-0.75;
+}
+.field-error {
+    @apply mt-1 text-sm text-(--color-red);
+}
+.label {
+    @apply text-[13px] md:text-[15px] mb-1.5 md:mb-2.5 font-medium text-stone-500;
+}
+.input {
+    @apply h-11 md:h-12.5 bg-white border border-(--color-border) text-sm md:text-[15px] px-3 placeholder:text-gray-500 placeholder:text-sm focus:outline-(--color-primary);
+}
+.toggle-password {
+    @apply text-lg md:text-xl right-3 top-9.5 md:right-3.75 md:top-11.5 cursor-pointer absolute;
+}
+.textarea {
+    @apply h-full py-3;
+}
+.submit-button {
+    @apply py-2.5 md:py-3.75 relative overflow-hidden bg-(--color-bg-button) w-full text-base md:text-xl text-(--color-primary) font-medium tracking-[0.5px] cursor-pointer transition duration-300 hover:bg-(--color-bg-button-hover) active:bg-(--color-bg-button-active) active:scale-95;
+}
+@keyframes shimmer {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+.submit-button-submitting {
+    @apply cursor-not-allowed select-none;
+    background: linear-gradient(90deg, #388e3c 25%, #66bb6a 50%, #388e3c 75%);
+    background-size: 200% auto;
+    animation: shimmer 1.5s linear infinite alternate;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.submit-button-spinner {
+    @apply inline-block align-middle ml-2.5 rounded-full;
+    width: 25px;
+    height: 25px;
+    border: 5px solid rgba(255, 255, 255, 0.35);
+    border-top-color: white;
+    animation: spin 0.7s linear infinite;
+}
+/* #endregion */
+
+/* #region: Authentication */
+.auth-page .width {
+    @apply w-full md:w-4/5 xl:w-3/5 mx-auto;
+}
+.auth-page .title {
+    @apply text-[19px] min-[400px]:text-[23px] md:text-[31px] pb-0.5 min-[400px]:pb-1 md:pb-2.5 font-semibold text-center;
+}
+.auth-page .description {
+    @apply text-[15px] min-[400px]:text-base md:text-[19px] pb-4 md:pb-7.5 text-center;
+}
+.auth-page .text {
+    @apply text-sm font-medium text-center;
+}
+.auth-page .text .span-link {
+    @apply text-(--color-bg-button) hover:underline hover:font-semibold block min-[400px]:inline-block mx-auto min-[400px]:mx-0;
+}
+/* #endregion */
+
+/* #region: Navbar */
+.profile-dropdown:hover .profile-dropdown-menu {
+    @apply visible opacity-100 translate-y-0;
+}
+.profile-dropdown-menu {
+    @apply absolute right-0 top-full mt-3.75 z-50 min-w-52 bg-(--color-primary) shadow-2xl py-1.5 invisible opacity-0 translate-y-3 transition-all duration-300;
+}
+.dropdown-item {
+    @apply flex items-center gap-3 px-5 py-3 text-white text-sm hover:bg-white/5 transition duration-300 w-full cursor-pointer;
+}
+.profile-chevron {
+    @apply text-white text-xs transition-transform duration-300;
+}
+.profile-dropdown:hover .profile-chevron {
+    @apply rotate-180;
+}
+/* #endregion */
+
+/* #region: Sidebar */
+.sidebar-label {
+    @apply text-xs uppercase tracking-[1px] font-semibold text-(--color-gold) mb-1;
+}
+.sidebar-item {
+    @apply relative px-4 py-2 flex items-center gap-2.5 rounded-lg text-(--color-light-white) text-sm font-medium transition duration-300 cursor-pointer hover:bg-white/8 [&.active]:bg-white/8;
+}
+.sidebar-item i {
+    @apply text-sm;
+}
+.sidebar-item.sidebar-logout:hover {
+    @apply bg-red-500/8 text-(--color-red);
+}
+.sidebar-nav-item.sidebar-logout:hover i {
+    @apply text-red-400;
+}
+.sidebar-badge {
+    @apply ms-auto bg-(--color-bg-button) text-(--color-primary) text-[10px] font-bold h-5 px-2 rounded-full flex items-center justify-center leading-none;
+}
+/* #endregion */
+
+/* #region: Backend */
+.back-top {
+    @apply flex flex-col gap-2 justify-between mb-3 sm:mb-5 sm:gap-0 sm:flex-row sm:items-center;
+}
+.back-title {
+    @apply text-base font-bold sm:text-xl;
+}
+.back-description {
+    @apply text-sm sm:text-[15px];
+}
+.back-warning {
+    @apply text-sm sm:text-base text-(--color-red) font-semibold mt-3;
+}
+.back-add-button {
+    @apply text-sm bg-(--color-bg-button) text-(--color-primary) font-medium px-3.5 py-2.5 transition duration-300 hover:bg-(--color-bg-button-hover) active:bg-(--color-bg-button-active) active:scale-95 text-center;
+}
+.filter-form {
+    @apply bg-white p-3 mb-3 border border-gray-100 flex flex-col gap-3 shadow-sm md:flex-row md:p-5 sm:mb-5;
+}
+.filter-input {
+    @apply min-w-0 md:flex-1;
+}
+.back-table-image {
+    @apply rounded-full w-12 h-12 object-cover min-[850px]:w-20 min-[850px]:h-20;
+}
+.back-form {
+    @apply bg-white border border-gray-100 shadow-sm p-3 md:p-5;
+}
+.back-form-image {
+    @apply w-60 h-60 sm:w-100 sm:h-100 object-cover;
+}
+.filter-select {
+    @apply cursor-pointer;
+}
+.clear-filter-button {
+    @apply flex items-center justify-center gap-1 h-12.5 text-sm bg-(--color-red) text-white px-5 rounded cursor-pointer transition duration-300 hover:bg-(--color-dark-red);
+}
+.back-back-button {
+    @apply flex items-center justify-center gap-2 text-sm text-(--color-primary) border border-(--color-border) px-4 py-2.5 transition duration-300 hover:bg-(--color-light-white);
+}
+.data-table-container {
+    @apply overflow-x-auto bg-white shadow-sm border border-gray-100;
+}
+.data-table {
+    @apply w-full text-sm text-left border-separate border-spacing-0;
+}
+.data-table th {
+    @apply px-6 py-4 text-sm uppercase tracking-wider font-semibold text-(--color-primary) border-b border-gray-400 bg-gray-50/50 whitespace-nowrap;
+}
+.data-table td {
+    @apply px-6 py-4 text-gray-700 border-b border-gray-200;
+}
+.data-table tbody tr:last-child td {
+    @apply border-b-0;
+}
+.data-table tbody tr {
+    @apply hover:bg-gray-50/80 transition-colors;
+}
+.status-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide;
+}
+.status-active {
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
+}
+.status-inactive {
+    @apply bg-amber-50 text-amber-700 border border-amber-200;
+}
+.status-suspended {
+    @apply bg-gray-400/15 text-gray-500;
+}
+.status-pending {
+    @apply bg-yellow-400/15 text-yellow-700;
+}
+.action-button {
+    @apply text-lg transition duration-300 hover:-translate-y-0.5;
+    -webkit-text-stroke: 0.5px;
+}
+.action-btn-edit {
+    @apply text-(--color-primary);
+}
+.action-btn-delete {
+    @apply text-(--color-red) cursor-pointer;
+}
+.back-file-input {
+    @apply h-12.5 bg-white border border-(--color-border) text-sm placeholder:text-gray-500 placeholder:text-sm focus:outline-(--color-primary) cursor-pointer file:mr-4 file:h-full file:px-5 file:border-0 file:text-sm file:font-semibold file:bg-(--color-dark-green) file:text-white hover:file:bg-(--color-bg-button-active) transition duration-300;
+}
+.custom-scrollbar::-webkit-scrollbar {
+    @apply h-1.75;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-(--color-border) rounded-lg;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-(--color-dark-green) rounded-sm transition duration-300 hover:bg-(--color-primary);
+}
+.fr-wrapper {
+    @apply h-100 overflow-y-auto overflow-x-hidden;
+}
+.fr-wrapper::-webkit-scrollbar {
+    @apply w-1.75;
+}
+.fr-wrapper::-webkit-scrollbar-track {
+    @apply bg-(--color-border) rounded-lg;
+}
+.fr-wrapper::-webkit-scrollbar-thumb {
+    @apply bg-(--color-dark-green) rounded-sm transition duration-300 hover:bg-(--color-primary);
+}
+/* Customize Tom Select */
+.ts-control {
+    @apply w-full! h-full! p-0! border-0! flex! items-center! text-[15px]! bg-transparent!;
+}
+.ts-wrapper.single .ts-control {
+    @apply border-0! shadow-none!;
+}
+/* #endregion */

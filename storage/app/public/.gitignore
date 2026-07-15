@@ -1,0 +1,8 @@
+*
+!.gitignore
+
+!/global/
+!/global/**
+
+!/frontend/
+!/frontend/**
